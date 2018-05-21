@@ -1,0 +1,23 @@
+version: '2'
+services:
+  web1:
+    build:
+      context: ./app1
+      dockerfile: Dockerfile
+    image: app1
+    volumes:
+     - ./app1/dir1:/var/www/html/
+    ports:
+     - "port1:80"
+    command: /usr/sbin/apachectl -D FOREGROUND
+  web2:
+    build:
+      context: ./app2
+      dockerfile: Dockerfile
+    image: app2
+    volumes:
+     - ./app2/dir2:/var/www/html/
+    ports:
+     - "port2:80"
+    command: /usr/sbin/apachectl -D FOREGROUND
+
